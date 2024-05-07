@@ -86,6 +86,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   void _nextLayout() {
     setState(() {
       _layout =_nextEnumLayout(_layout);
@@ -138,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: SpeedDial(
         icon: Icons.auto_awesome_motion_sharp, //CAMBIO TIPO ICONS
-        backgroundColor: Color.fromARGB(255, 243, 33, 68),
+        backgroundColor: Color.fromARGB(130, 243, 33, 243),
         children: [
           SpeedDialChild(
           child: const Icon(Icons.plus_one_outlined, color: Colors.white), //CAMBIO TIPO ICONS Y COLOR
@@ -146,25 +152,32 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor:Color.fromARGB(255, 243, 33, 68),
           onTap: _incrementCounter, //Llamo a metodo correspondiete con su accionar
           ),
-            SpeedDialChild(
-            child: const Icon(Icons.remove, color: Colors.white), //CAMBIO TIPO ICONS
-            label: 'Restar uno',
-            backgroundColor:Color.fromARGB(255, 243, 33, 68),
-            onTap: _decreaseCounter, //Llamo a metodo correspondiete con su accionar
-            ),
-              SpeedDialChild(
-              child: const Icon(Icons.two_k_plus_outlined, color: Colors.white), //CAMBIO TIPO ICONS
-              label: 'Sumar de a 2000',
-              backgroundColor:Color.fromARGB(255, 243, 33, 68),
-              onTap: _increment2KCounter, //Llamo a metodo correspondiete con su accionar
-              ),
-                SpeedDialChild(
-                child: const Icon(Icons.layers_outlined,color: Colors.white),
-                label: 'Layout',
-                backgroundColor: Color.fromARGB(255, 243, 33, 68),
-                onTap: _nextLayout, //Llamo a metodo correspondiete con su accionar
-                ),
+          SpeedDialChild(
+          child: const Icon(Icons.remove, color: Colors.white), //CAMBIO TIPO ICONS
+          label: 'Restar uno',
+          backgroundColor:Color.fromARGB(255, 243, 33, 68),
+          onTap: _decreaseCounter, //Llamo a metodo correspondiete con su accionar
+          ),
+          SpeedDialChild(
+          child: const Icon(Icons.two_k_plus_outlined, color: Colors.white), //CAMBIO TIPO ICONS
+          label: 'Sumar de a 2000',
+          backgroundColor:Color.fromARGB(255, 243, 33, 68),
+          onTap: _increment2KCounter, //Llamo a metodo correspondiete con su accionar
+          ),
+          SpeedDialChild(
+          child: const Icon(Icons.exposure_zero_outlined,color: Colors.white),//CAMBIO TIPO ICONS
+          label: 'Reiniciar contador',
+          backgroundColor: Color.fromARGB(255, 243, 33, 68),
+          onTap: _resetCounter, //Llamo a metodo correspondiete con su accionar
+          ),
+          SpeedDialChild(
+          child: const Icon(Icons.layers_outlined,color: Colors.white),
+          label: 'Layout',
+          backgroundColor: Color.fromARGB(255, 243, 33, 68),
+          onTap: _nextLayout, //Llamo a metodo correspondiete con su accionar
+          ),
       ]),
+      
       /*floatingActionButton: FloatingActionButton(
         onPressed: _nextLayout,//_incrementCounter,
         tooltip: 'Increment',
